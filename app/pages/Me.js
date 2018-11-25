@@ -1,18 +1,32 @@
 import React, { Component } from 'react'
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ToastAndroid, BackHandler } from 'react-native';
+import HandleBack from '../components/HandleBack'
 
 class Me extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
+
+    _onBack = () => {
+        if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+            //最近2秒内按过back键，可以退出应用。
+            BackHandler.exitApp();
+            return false;
+        }
+        ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
+        this.lastBackPressed = Date.now();
+        return true
+    }
     render() { 
         return (
-            <View>
-                <Text>Me</Text>
-                <Button title='到设置页'
-                    onPress={()=>this.props.navigation.navigate('Settings')} />
-            </View>
+            <HandleBack _onBack={this._onBack}>
+                <View>
+                    <Text>Me</Text>
+                    <Button title='到设置页'
+                        onPress={()=>this.props.navigation.navigate('Settings')} />
+                </View>
+            </HandleBack>
         );
     }
 }
