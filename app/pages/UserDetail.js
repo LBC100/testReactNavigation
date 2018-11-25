@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native';
 
-class Me extends Component {
+class UserDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -9,12 +9,12 @@ class Me extends Component {
     render() { 
         return (
             <View>
-                <Text>Me</Text>
-                <Button title='到设置页'
+                <Text>UserDetail</Text>
+                <Button title='到设置页' 
                     onPress={()=>this.props.navigation.navigate('Settings')} />
             </View>
         );
     }
 }
  
-export default Me;
+export default UserDetail;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 class Home extends Component {
     constructor(props) {
@@ -10,6 +10,11 @@ class Home extends Component {
         return (
             <View>
                 <Text>home</Text>
+                <Button title='到用户详情' 
+                    onPress={()=>this.props.navigation.navigate('UserDetail')} />
+
+                <Button title='到设置页' 
+                    onPress={()=>this.props.navigation.navigate('Settings')} />
             </View>
         );
     }

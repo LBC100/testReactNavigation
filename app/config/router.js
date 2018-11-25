@@ -1,9 +1,8 @@
-import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation'; 
+import { createBottomTabNavigator, StackNavigator } from 'react-navigation'; 
 import Home from '../pages/Home'
 import Me from '../pages/Me'
-
+import UserDetail from '../pages/UserDetail'
+import Settings from '../pages/Settings'
 
 
 
@@ -23,4 +22,11 @@ export const BottomTab = createBottomTabNavigator({
   
 })
 
-// export AppNavigator;
+
+export const Root = StackNavigator({
+  BottomTab: { screen: BottomTab, }, // 底部导航
+  Settings: { screen: Settings, }, //设置页
+  UserDetail: { screen: UserDetail, } // 用户详情
+},{
+  headerMode: 'none',
+})
