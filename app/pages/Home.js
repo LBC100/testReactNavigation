@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button, ToastAndroid } from 'react-native';
+import { View, Text, Button, ToastAndroid, Image } from 'react-native';
 import HandleBack from '../components/HandleBack'
 
 
@@ -24,9 +24,9 @@ class Home extends Component {
             <HandleBack _onBack={this._onBack}>
                 <View>
                     <Text>home</Text>
-                    <Button title='到用户详情' 
+                    <Button title='到用户详情1' 
                         onPress={()=>this.props.navigation.navigate('UserDetail')} />
-
+                        
                     <Button title='到设置页' 
                         onPress={()=>this.props.navigation.navigate('Settings')} />
                 </View>
